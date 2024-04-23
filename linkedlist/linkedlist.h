@@ -6,7 +6,7 @@ class Node
 
         Node(){}
         Node(int d): data(d),next(nullptr) {}
-        Node(int d,Node*next): data(d),next(next) {}
+        Node(int d,Node *next): data(d),next(next) {}
 };
 
 class LinkedList
@@ -22,10 +22,12 @@ class LinkedList
         void add(Node *pred,int data);
         void addToHead(int data);
         void addToTail(int data);
-
+	void searchsmt(int target);	
+	void traverse();
         bool remove(int data);
         bool removeFromHead();
         bool removeFromTail();
         bool isEmpty();
+	void random();
 
 };
