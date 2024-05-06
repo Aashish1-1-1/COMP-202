@@ -31,4 +31,5 @@ class LinkedList
         bool isEmpty();//
 	Node* getHead();//
 	Node* getTail();//
+	bool FreeMemory();
 };

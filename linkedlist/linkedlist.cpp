@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include "linkedlist.h"
 
 //Initializing head and tail to null pointer at start
@@ -140,7 +141,23 @@ Node* LinkedList::getHead(){//getHead
 Node* LinkedList::getTail(){//gettail
 	return this->TAIL;
 }
-
+bool LinkedList::FreeMemory(){
+	if(this->isEmpty()){
+		return false;
+	}
+	std::vector<Node *> temparr;
+	Node *temp=HEAD;
+	while(temp!=nullptr){
+		temparr.push_back(temp);
+		temp=temp->next;
+	}
+	for(Node *e:temparr){
+		delete e;
+	}
+	HEAD=nullptr;
+	TAIL=nullptr;
+	return true;
+}
 int main(){
 	LinkedList *l1=new LinkedList();
 	l1->addToTail(34);
@@ -152,6 +169,7 @@ int main(){
 	l1->add(l1->getHead(),62);
 	l1->add(l1->getHead(),79);
 	l1->traverse();
+	l1->FreeMemory();
+	l1->traverse();
 	delete l1;//freeing memory used
 }
-
