@@ -8,6 +8,7 @@ LinkedList::LinkedList(){
 	this->TAIL=nullptr;
 }
 LinkedList::~LinkedList(){
+	this->FreeMemory();
 }
 //Check if the linkedlist is an empty linkedlist 
 bool LinkedList::isEmpty(){
@@ -94,7 +95,7 @@ Node* LinkedList::searchsmt(int target){
 	Node *temp = HEAD;//initialize node to head
 	while(temp!=nullptr){//iterate through the linked list until and unless we get lastelement that has adderess of nullptr
 		if(temp->data==target){
-			std::cout<<"Found at "<<temp;
+			std::cout<<"Found at "<<temp<<std::endl;
 		}
 		temp=temp->next;
 	}
@@ -157,19 +158,4 @@ bool LinkedList::FreeMemory(){
 	HEAD=nullptr;
 	TAIL=nullptr;
 	return true;
-}
-int main(){
-	LinkedList *l1=new LinkedList();
-	l1->addToTail(34);
-	l1->addToHead(56);
-	l1->addToHead(25);
-	l1->addToTail(69);
-	l1->remove(56);
-	l1->removeFromTail();
-	l1->add(l1->getHead(),62);
-	l1->add(l1->getHead(),79);
-	l1->traverse();
-	l1->FreeMemory();
-	l1->traverse();
-	delete l1;//freeing memory used
 }
