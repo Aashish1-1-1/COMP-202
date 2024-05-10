@@ -2,18 +2,18 @@
 
 class ArrayQueue : public Queue{
 	public:
-		ArrayQueue();
+		ArrayQueue(int max);
 		~ArrayQueue();
 		
-		void enqueue();
+		 void enqueue(int data);
 		 int dequeue();
 		 bool isEmpty();
-		 bool isFull();
 		 int front();
 		 int back();
+		 bool isFull();
 	private:
 		 int *arr;
-		 int front;
-		 int back;
-		 int max;
-}
+		 int frontindex;
+		 int backindex;
+		 int maxsize;
+};

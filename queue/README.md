@@ -1,6 +1,8 @@
-#include <iostream>
-#include "linkedlist_queue.h"
+# Introduction
+Implementaion of Queue one of the datastructure in computer science.
 
+# Output
+```cpp
 int main(){
 	LinkedListQueue q(6);
 	q.enqueue(4);
@@ -13,3 +15,8 @@ int main(){
 	std::cout<<q.dequeue();	
 	return 0;
 }
+
+```
+```bash
+    4 3 5 5
+```
