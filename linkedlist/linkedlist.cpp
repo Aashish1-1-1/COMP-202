@@ -146,15 +146,15 @@ bool LinkedList::FreeMemory(){
 	if(this->isEmpty()){
 		return false;
 	}
-	std::vector<Node *> temparr;
-	Node *temp=HEAD;
-	while(temp!=nullptr){
-		temparr.push_back(temp);
-		temp=temp->next;
+	Node *previous=HEAD;
+	Node *current=HEAD->next;
+	while(current!=nullptr){
+		delete previous;
+		previous=current;
+		current=current->next;
 	}
-	for(Node *e:temparr){
-		delete e;
-	}
+	delete current;
+	delete previous;
 	HEAD=nullptr;
 	TAIL=nullptr;
 	return true;
